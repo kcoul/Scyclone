@@ -45,7 +45,7 @@ public:
     inline static auto OUTPUT_GAIN_ID_STR = "param_output_gain";
     inline static auto DRY_WET_ID_STR = "param_mix";
 
-#if JUCE_7 //Set by CMake depending on which version it is told to build against
+#if JUCE7 //Set by CMake depending on which version it is told to build against
     inline static const juce::ParameterID
     
             INPUT_GAIN_ID = {INPUT_GAIN_ID_STR, 1},
@@ -216,7 +216,7 @@ private:
         juce::String returnString = juce::String{static_cast<int>(source1)} + " / " + juce::String{static_cast<int>(source2)};
         return returnString; };
     inline static auto fade_attribute_vfs = [] (const juce::String& x) { return x.getFloatValue() / 100; };
-#if JUCE_7
+#if JUCE7
     inline static juce::AudioParameterFloatAttributes gain_attributes = juce::AudioParameterFloatAttributes()
         .withStringFromValueFunction (gain_attribute_sfv)
         .withValueFromStringFunction (gain_attribute_vfs)

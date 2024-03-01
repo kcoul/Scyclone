@@ -75,7 +75,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout PluginParameters::createPara
 
     params.push_back(std::make_unique<juce::AudioParameterFloat> (
                                                                   #if JUCE7
-                                                                  FILTER_NETWORK1_ID
+                                                                  FILTER_NETWORK1_ID,
                                                                   #else
                                                                   FILTER_NETWORK1_ID_STR,
                                                                   #endif

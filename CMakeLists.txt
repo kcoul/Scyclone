@@ -29,7 +29,11 @@ endif()
 #static linking runtime library in Windows (for onnxruntime)
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
-add_subdirectory(modules/JUCE)                    # If you've put JUCE in a subdirectory called JUCE
+if(${LEGACY})
+	add_subdirectory(modules/JUCE_6.1.6)              # If you've put JUCE in a subdirectory called JUCE_6.1.6
+else ()
+	add_subdirectory(modules/JUCE)                    # If you've put JUCE in a subdirectory called JUCE
+endif()
 
 # If you are building a VST2 or AAX plugin, CMake needs to be told where to find these SDKs on your
 # system. This setup should be done before calling `juce_add_plugin`.
@@ -68,6 +72,12 @@ juce_add_plugin(${TARGET_NAME}
 		FORMATS ${FORMATS_TO_BUILD}                    # The formats to build. Other valid formats are: AAX Unity VST AU AUv3
 		PRODUCT_NAME "Scyclone"			            # The name of the final executable, which can differ from the target name
 		)
+
+if(${LEGACY})
+	target_compile_definitions(${TARGET_NAME} PUBLIC "JUCE6=1")
+else ()
+	target_compile_definitions(${TARGET_NAME} PUBLIC "JUCE7=1")
+endif()
 
 # `juce_generate_juce_header` will create a JuceHeader.h for a given target, which will be generated
 # into your build tree. This should be included with `#include <JuceHeader.h>`. The include path for
