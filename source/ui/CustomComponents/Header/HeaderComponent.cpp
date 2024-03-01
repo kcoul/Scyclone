@@ -29,8 +29,13 @@ HeaderComponent::HeaderComponent(AudioPluginAudioProcessor &p, juce::AudioProces
 
     inputGainSlider.setSliderStyle(juce::Slider::LinearBar);
     inputGainSlider.setLookAndFeel(&customLinearVolumeSliderLookAndFeel);
+#if JUCE7
     inputGainSlider.setTextValueSuffix(" " + parameters.getParameter(PluginParameters::INPUT_GAIN_ID.getParamID())->getLabel());
     inputGainAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(parameters, PluginParameters::INPUT_GAIN_ID.getParamID(), inputGainSlider);
+#else
+    inputGainSlider.setTextValueSuffix(" " + parameters.getParameter(PluginParameters::INPUT_GAIN_ID_STR)->getLabel());
+    inputGainAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(parameters, PluginParameters::INPUT_GAIN_ID_STR, inputGainSlider);
+#endif
     inputGainSlider.setTextBoxIsEditable(false);
     addAndMakeVisible(inputGainSlider);
 
@@ -42,8 +47,13 @@ HeaderComponent::HeaderComponent(AudioPluginAudioProcessor &p, juce::AudioProces
 
     outputGainSlider.setSliderStyle(juce::Slider::LinearBar);
     outputGainSlider.setLookAndFeel(&customLinearVolumeSliderLookAndFeel);
+#if JUCE7
     outputGainSlider.setTextValueSuffix(" " + parameters.getParameter(PluginParameters::OUTPUT_GAIN_ID.getParamID())->getLabel());
     outputGainAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(parameters, PluginParameters::OUTPUT_GAIN_ID.getParamID(), outputGainSlider);
+#else
+    outputGainSlider.setTextValueSuffix(" " + parameters.getParameter(PluginParameters::OUTPUT_GAIN_ID_STR)->getLabel());
+    outputGainAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(parameters, PluginParameters::OUTPUT_GAIN_ID_STR, outputGainSlider);
+#endif
     outputGainSlider.setTextBoxIsEditable(false);
     addAndMakeVisible(outputGainSlider);
 

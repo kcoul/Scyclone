@@ -8,21 +8,38 @@ ParameterControl::ParameterControl(juce::AudioProcessorValueTreeState &parameter
     addAndMakeVisible(fadeSlider);
     fadeSlider.setCustomColour(CustomSliderColourID::gradientColourTopId, juce::Colour {0xff004E92});
     fadeSlider.setCustomColour(CustomSliderColourID::gradientColourBottomId, juce::Colour {0xffEB1E79} );
+#if JUCE7
     fadeSlider.addSliderAttachment(parameters, PluginParameters::FADE_ID.getParamID());
+#else
+    fadeSlider.addSliderAttachment(parameters, PluginParameters::FADE_ID_STR);
+#endif
     fadeSlider.setDoubleClickReturnValue(0.0);
 
     addAndMakeVisible(dynamicSlider);
+#if JUCE7
     dynamicSlider.addSliderAttachment(parameters, PluginParameters::COMP_DRY_WET_ID.getParamID());
+#else
+    dynamicSlider.addSliderAttachment(parameters, PluginParameters::COMP_DRY_WET_ID_STR);
+#endif
     dynamicSlider.setDoubleClickReturnValue(0.0);
 
     addAndMakeVisible(mixSlider);
+#if JUCE7
     mixSlider.addSliderAttachment(parameters, PluginParameters::DRY_WET_ID.getParamID());
+#else
+    mixSlider.addSliderAttachment(parameters, PluginParameters::DRY_WET_ID_STR);
+#endif
     //mixSlider.setCustomColour(CustomSliderColourID::gradientColourTopId, juce::Colour {0xffF6EFE8});
     //mixSlider.setCustomColour(CustomSliderColourID::gradientColourBottomId, juce::Colour {0xff00467F} );
     mixSlider.setDoubleClickReturnValue(10.0);
 
+#if JUCE7
     parameterChanged(PluginParameters::ON_OFF_NETWORK1_ID.getParamID(), parameters.getParameterAsValue(PluginParameters::ON_OFF_NETWORK1_ID.getParamID()).getValue());
     parameterChanged(PluginParameters::ON_OFF_NETWORK2_ID.getParamID(), parameters.getParameterAsValue(PluginParameters::ON_OFF_NETWORK2_ID.getParamID()).getValue());
+#else
+    parameterChanged(PluginParameters::ON_OFF_NETWORK1_ID_STR, parameters.getParameterAsValue(PluginParameters::ON_OFF_NETWORK1_ID_STR).getValue());
+    parameterChanged(PluginParameters::ON_OFF_NETWORK2_ID_STR, parameters.getParameterAsValue(PluginParameters::ON_OFF_NETWORK2_ID_STR).getValue());
+#endif
 }
 
 void ParameterControl::resized() {
@@ -49,8 +66,13 @@ void ParameterControl::parameterChanged(const juce::String &parameterID, float n
 }
 
 void ParameterControl::handleNetworkEnablementChange() {
+#if JUCE7
     bool network1Enablement = parameters.getParameterAsValue(PluginParameters::ON_OFF_NETWORK1_ID.getParamID()).getValue();
     bool network2Enablement = parameters.getParameterAsValue(PluginParameters::ON_OFF_NETWORK2_ID.getParamID()).getValue();
+#else
+    bool network1Enablement = parameters.getParameterAsValue(PluginParameters::ON_OFF_NETWORK1_ID_STR).getValue();
+    bool network2Enablement = parameters.getParameterAsValue(PluginParameters::ON_OFF_NETWORK2_ID_STR).getValue();
+#endif
 
     if (network1Enablement && network2Enablement){
         fadeSlider.setEnabled(true);

@@ -15,9 +15,17 @@ void ProcessorGain::processOutputBlock(juce::AudioBuffer<float> &buffer) {
 }
 
 void ProcessorGain::parameterChanged(const juce::String &parameterID, float newValue) {
+#if JUCE7
     if (parameterID == PluginParameters::INPUT_GAIN_ID.getParamID()) {
         inputGain.currentGain = juce::Decibels::decibelsToGain(newValue);
     } else if (parameterID == PluginParameters::OUTPUT_GAIN_ID.getParamID()) {
         outputGain.currentGain = juce::Decibels::decibelsToGain(newValue);
     }
+#else
+    if (parameterID == PluginParameters::INPUT_GAIN_ID_STR) {
+        inputGain.currentGain = juce::Decibels::decibelsToGain(newValue);
+    } else if (parameterID == PluginParameters::OUTPUT_GAIN_ID_STR) {
+        outputGain.currentGain = juce::Decibels::decibelsToGain(newValue);
+    }
+#endif
 }

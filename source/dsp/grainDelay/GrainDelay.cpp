@@ -44,13 +44,33 @@ void GrainDelay::setMuted(bool newState) {
 }
 
 void GrainDelay::parameterChanged(const juce::String &parameterID, float newValue) {
+#if JUCE7
     if (parameterID == PluginParameters::GRAIN_ON_OFF_NETWORK1_ID.getParamID() && number == 1)
         setMuted(!(bool) newValue);
     else if (parameterID == PluginParameters::GRAIN_ON_OFF_NETWORK2_ID.getParamID() && number == 2)
         setMuted(!(bool) newValue);
-    else if ((parameterID == PluginParameters::GRAIN_NETWORK1_PITCH_ID.getParamID() && number == 1) || (parameterID == PluginParameters::GRAIN_NETWORK2_PITCH_ID.getParamID() && number == 2))
+    else if ((parameterID == PluginParameters::GRAIN_NETWORK1_PITCH_ID.getParamID() && number == 1) ||
+             (parameterID == PluginParameters::GRAIN_NETWORK2_PITCH_ID.getParamID() && number == 2))
         rnboObject.setParameterValue(2, newValue);
-    else if ((parameterID == PluginParameters::GRAIN_NETWORK1_SIZE_ID.getParamID() && number == 1 ) || (parameterID == PluginParameters::GRAIN_NETWORK2_SIZE_ID.getParamID() && number == 2))
+    else if ((parameterID == PluginParameters::GRAIN_NETWORK1_SIZE_ID.getParamID() && number == 1 ) ||
+             (parameterID == PluginParameters::GRAIN_NETWORK2_SIZE_ID.getParamID() && number == 2))
         rnboObject.setParameterValue(1, newValue);
-    else if ((parameterID == PluginParameters::GRAIN_NETWORK1_INTERVAL_ID.getParamID() && number == 1 ) || (parameterID == PluginParameters::GRAIN_NETWORK2_INTERVAL_ID.getParamID() && number == 2))
-        rnboObject.setParameterValue(3, newValue);}
+    else if ((parameterID == PluginParameters::GRAIN_NETWORK1_INTERVAL_ID.getParamID() && number == 1 ) ||
+             (parameterID == PluginParameters::GRAIN_NETWORK2_INTERVAL_ID.getParamID() && number == 2))
+        rnboObject.setParameterValue(3, newValue);
+#else
+    if (parameterID == PluginParameters::GRAIN_ON_OFF_NETWORK1_ID_STR && number == 1)
+        setMuted(!(bool) newValue);
+    else if (parameterID == PluginParameters::GRAIN_ON_OFF_NETWORK2_ID_STR && number == 2)
+        setMuted(!(bool) newValue);
+    else if ((parameterID == PluginParameters::GRAIN_NETWORK1_PITCH_ID_STR && number == 1) ||
+             (parameterID == PluginParameters::GRAIN_NETWORK2_PITCH_ID_STR && number == 2))
+        rnboObject.setParameterValue(2, newValue);
+    else if ((parameterID == PluginParameters::GRAIN_NETWORK1_SIZE_ID_STR && number == 1 ) ||
+             (parameterID == PluginParameters::GRAIN_NETWORK2_SIZE_ID_STR && number == 2))
+        rnboObject.setParameterValue(1, newValue);
+    else if ((parameterID == PluginParameters::GRAIN_NETWORK1_INTERVAL_ID_STR && number == 1 ) ||
+             (parameterID == PluginParameters::GRAIN_NETWORK2_INTERVAL_ID_STR && number == 2))
+        rnboObject.setParameterValue(3, newValue);
+#endif
+}

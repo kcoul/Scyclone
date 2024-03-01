@@ -11,8 +11,13 @@ IIRCutoffFilter::IIRCutoffFilter(const juce::AudioProcessorValueTreeState &apvts
     targetFreqRangeLPF = {100.0, 20000.0};
     targetFreqRangeHPF.setSkewForCentre(500.0);
     targetFreqRangeLPF.setSkewForCentre(500.0);
+#if JUCE7
     if (index == 1) updateFilterParams(apvts.getRawParameterValue(PluginParameters::FILTER_NETWORK1_ID.getParamID())->load());
     if (index == 2) updateFilterParams(apvts.getRawParameterValue(PluginParameters::FILTER_NETWORK2_ID.getParamID())->load());
+#else
+    if (index == 1) updateFilterParams(apvts.getRawParameterValue(PluginParameters::FILTER_NETWORK1_ID_STR)->load());
+    if (index == 2) updateFilterParams(apvts.getRawParameterValue(PluginParameters::FILTER_NETWORK2_ID_STR)->load());
+#endif
 }
 
 IIRCutoffFilter::~IIRCutoffFilter()
@@ -109,6 +114,7 @@ void IIRCutoffFilter::processFilters(juce::AudioBuffer<float> &buffer) {
 }
 
 void IIRCutoffFilter::parameterChanged(const juce::String &parameterID, float newValue) {
+#if JUCE7
     if (parameterID == PluginParameters::FILTER_NETWORK1_ID.getParamID() && index == 1) {
         updateFilterParams(newValue);
     } else if (parameterID == PluginParameters::FILTER_NETWORK2_ID.getParamID() && index == 2) {
@@ -118,6 +124,17 @@ void IIRCutoffFilter::parameterChanged(const juce::String &parameterID, float ne
     } else if (parameterID == PluginParameters::ON_OFF_NETWORK2_ID.getParamID() && index == 2) {
         setMuted((bool)!newValue);
     }
+#else
+    if (parameterID == PluginParameters::FILTER_NETWORK1_ID_STR && index == 1) {
+        updateFilterParams(newValue);
+    } else if (parameterID == PluginParameters::FILTER_NETWORK2_ID_STR && index == 2) {
+        updateFilterParams(newValue);
+    } else if (parameterID == PluginParameters::ON_OFF_NETWORK1_ID_STR && index == 1) {
+        setMuted((bool)!newValue);
+    } else if (parameterID == PluginParameters::ON_OFF_NETWORK2_ID_STR && index == 2) {
+        setMuted((bool)!newValue);
+    }
+#endif
 }
 
 void IIRCutoffFilter::setMuted(bool shouldBeMuted) {

@@ -4,7 +4,7 @@
 #include "AdvancedParameterControl.h"
 AdvancedParameterControl::AdvancedParameterControl(juce::AudioProcessorValueTreeState &parameters)
 {
-
+#if JUCE7
     transientSplitter1.addSliderAttachment(parameters, PluginParameters::TRAN_ATTACK_TIME_NETWORK1_ID.getParamID());
     transientSplitter2.addSliderAttachment(parameters, PluginParameters::TRAN_ATTACK_TIME_NETWORK2_ID.getParamID());
     raveFade.addSliderAttachment(parameters, PluginParameters::FADE_ID.getParamID());
@@ -23,6 +23,26 @@ AdvancedParameterControl::AdvancedParameterControl(juce::AudioProcessorValueTree
     grainDelay2Param2.addSliderAttachment(parameters, PluginParameters::GRAIN_NETWORK2_SIZE_ID.getParamID());
     grainDelay2Param3.addSliderAttachment(parameters, PluginParameters::GRAIN_NETWORK2_PITCH_ID.getParamID());
     grainDelay2Param4.addSliderAttachment(parameters, PluginParameters::GRAIN_NETWORK2_MIX_ID.getParamID());
+#else
+    transientSplitter1.addSliderAttachment(parameters, PluginParameters::TRAN_ATTACK_TIME_NETWORK1_ID_STR);
+    transientSplitter2.addSliderAttachment(parameters, PluginParameters::TRAN_ATTACK_TIME_NETWORK2_ID_STR);
+    raveFade.addSliderAttachment(parameters, PluginParameters::FADE_ID_STR);
+    compThreshold.addSliderAttachment(parameters, PluginParameters::COMP_THRESHOLD_ID_STR);
+    compRatio.addSliderAttachment(parameters, PluginParameters::COMP_RATIO_ID_STR);
+    compMakeup.addSliderAttachment(parameters, PluginParameters::COMP_MAKEUPGAIN_ID_STR);
+    compMix.addSliderAttachment(parameters, PluginParameters::COMP_DRY_WET_ID_STR);
+    masterMixParam.addSliderAttachment(parameters, PluginParameters::DRY_WET_ID_STR);
+
+    grainDelay1Param1.addSliderAttachment(parameters, PluginParameters::GRAIN_NETWORK1_INTERVAL_ID_STR);
+    grainDelay1Param2.addSliderAttachment(parameters, PluginParameters::GRAIN_NETWORK1_SIZE_ID_STR);
+    grainDelay1Param3.addSliderAttachment(parameters, PluginParameters::GRAIN_NETWORK1_PITCH_ID_STR);
+    grainDelay1Param4.addSliderAttachment(parameters, PluginParameters::GRAIN_NETWORK1_MIX_ID_STR);
+
+    grainDelay2Param1.addSliderAttachment(parameters, PluginParameters::GRAIN_NETWORK2_INTERVAL_ID_STR);
+    grainDelay2Param2.addSliderAttachment(parameters, PluginParameters::GRAIN_NETWORK2_SIZE_ID_STR);
+    grainDelay2Param3.addSliderAttachment(parameters, PluginParameters::GRAIN_NETWORK2_PITCH_ID_STR);
+    grainDelay2Param4.addSliderAttachment(parameters, PluginParameters::GRAIN_NETWORK2_MIX_ID_STR);
+#endif
 
     // make things visible
     for (int i = 0; i<numberOfSliders; i++)

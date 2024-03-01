@@ -31,11 +31,17 @@ AudioPluginAudioProcessor::AudioPluginAudioProcessor()
     }
 
     parameters.state.addChild(PluginParameters::createNotAutomatableParameterLayout(), 0, nullptr);
-    
+
+#if JUCE7
     dryWetMixer.setDryWetProportion(parameters.getRawParameterValue(PluginParameters::DRY_WET_ID.getParamID())->load());
     compMixer.setDryWetProportion(parameters.getRawParameterValue(PluginParameters::COMP_DRY_WET_ID.getParamID())->load());
     fadeMixer.setDryWetProportion(parameters.getRawParameterValue(PluginParameters::FADE_ID.getParamID())->load());
-    
+#else
+    dryWetMixer.setDryWetProportion(parameters.getRawParameterValue(PluginParameters::DRY_WET_ID_STR)->load());
+    compMixer.setDryWetProportion(parameters.getRawParameterValue(PluginParameters::COMP_DRY_WET_ID_STR)->load());
+    fadeMixer.setDryWetProportion(parameters.getRawParameterValue(PluginParameters::FADE_ID_STR)->load());
+#endif
+
     onnxProcessor1.onOnnxModelLoad = [this] (bool initLoading, juce::String modelName) {
         this->suspendProcessing(initLoading);
 //        std::cout << "Onnx proc 1 suspend:" << initLoading << std::endl; //DBG
@@ -226,10 +232,17 @@ void AudioPluginAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     grainDelay2.processBlock(network2Buffer);
     grain2DryWetMixer.setWetSamples(network2Buffer);
 
+#if JUCE7
     if (parameters.getRawParameterValue(PluginParameters::ON_OFF_NETWORK1_ID.getParamID())->load() == 0.f)
         network1Buffer.clear();
     if (parameters.getRawParameterValue(PluginParameters::ON_OFF_NETWORK2_ID.getParamID())->load() == 0.f)
         network2Buffer.clear();
+#else
+    if (parameters.getRawParameterValue(PluginParameters::ON_OFF_NETWORK1_ID_STR)->load() == 0.f)
+        network1Buffer.clear();
+    if (parameters.getRawParameterValue(PluginParameters::ON_OFF_NETWORK2_ID_STR)->load() == 0.f)
+        network2Buffer.clear();
+#endif
 
     monoBuffer.makeCopyOf(network1Buffer);
     fadeMixer.setDrySamples(network2Buffer);
@@ -305,6 +318,7 @@ void AudioPluginAudioProcessor::parameterChanged(const juce::String &parameterID
     processorTransientSplitter1.parameterChanged(parameterID, newValue);
     processorTransientSplitter2.parameterChanged(parameterID, newValue);
 
+#if JUCE7
     if (parameterID == PluginParameters::DRY_WET_ID.getParamID()) {
         dryWetMixer.parameterChanged(parameterID, newValue);
     } else if (parameterID == PluginParameters::COMP_DRY_WET_ID.getParamID()) {
@@ -316,30 +330,65 @@ void AudioPluginAudioProcessor::parameterChanged(const juce::String &parameterID
     } else if (parameterID == PluginParameters::GRAIN_NETWORK2_MIX_ID.getParamID()){
         grain2DryWetMixer.setDryWetProportion(newValue);
     }
+#else
+    if (parameterID == PluginParameters::DRY_WET_ID_STR) {
+        dryWetMixer.parameterChanged(parameterID, newValue);
+    } else if (parameterID == PluginParameters::COMP_DRY_WET_ID_STR) {
+        compMixer.parameterChanged(parameterID, newValue);
+    } else if (parameterID == PluginParameters::FADE_ID_STR) {
+        fadeMixer.parameterChanged(parameterID, newValue);
+    } else if (parameterID == PluginParameters::GRAIN_NETWORK1_MIX_ID_STR){
+        grain1DryWetMixer.setDryWetProportion(newValue);
+    } else if (parameterID == PluginParameters::GRAIN_NETWORK2_MIX_ID_STR){
+        grain2DryWetMixer.setDryWetProportion(newValue);
+    }
+#endif
 }
 
 void AudioPluginAudioProcessor::setInitialMuteParameters() {
+#if JUCE7
     auto onOffGrain1 = parameters.getRawParameterValue(PluginParameters::GRAIN_ON_OFF_NETWORK1_ID.getParamID())->load();
     auto onOffGrain2 = parameters.getRawParameterValue(PluginParameters::GRAIN_ON_OFF_NETWORK2_ID.getParamID())->load();
 
     auto onOffNetwork1 = parameters.getRawParameterValue(PluginParameters::ON_OFF_NETWORK1_ID.getParamID())->load();
     auto onOffNetwork2 = parameters.getRawParameterValue(PluginParameters::ON_OFF_NETWORK1_ID.getParamID())->load();
 
-
     parameterChanged(PluginParameters::ON_OFF_NETWORK1_ID.getParamID(), onOffNetwork1);
     parameterChanged(PluginParameters::ON_OFF_NETWORK2_ID.getParamID(), onOffNetwork2);
 
     parameterChanged(PluginParameters::GRAIN_ON_OFF_NETWORK1_ID.getParamID(), onOffGrain1);
     parameterChanged(PluginParameters::GRAIN_ON_OFF_NETWORK2_ID.getParamID(), onOffGrain2);
+#else
+    auto onOffGrain1 = parameters.getRawParameterValue(PluginParameters::GRAIN_ON_OFF_NETWORK1_ID_STR)->load();
+    auto onOffGrain2 = parameters.getRawParameterValue(PluginParameters::GRAIN_ON_OFF_NETWORK2_ID_STR)->load();
+
+    auto onOffNetwork1 = parameters.getRawParameterValue(PluginParameters::ON_OFF_NETWORK1_ID_STR)->load();
+    auto onOffNetwork2 = parameters.getRawParameterValue(PluginParameters::ON_OFF_NETWORK1_ID_STR)->load();
+
+    parameterChanged(PluginParameters::ON_OFF_NETWORK1_ID_STR, onOffNetwork1);
+    parameterChanged(PluginParameters::ON_OFF_NETWORK2_ID_STR, onOffNetwork2);
+
+    parameterChanged(PluginParameters::GRAIN_ON_OFF_NETWORK1_ID_STR, onOffGrain1);
+    parameterChanged(PluginParameters::GRAIN_ON_OFF_NETWORK2_ID_STR, onOffGrain2);
+#endif
 }
 
 void AudioPluginAudioProcessor::initialiseRnbo(){
+#if JUCE7
     grainDelay1.setParameterValue(parameters.getRawParameterValue(PluginParameters::GRAIN_NETWORK1_PITCH_ID.getParamID()), 2);
     grainDelay1.setParameterValue(parameters.getRawParameterValue(PluginParameters::GRAIN_NETWORK1_INTERVAL_ID.getParamID()), 3);
     grainDelay1.setParameterValue(parameters.getRawParameterValue(PluginParameters::GRAIN_NETWORK1_SIZE_ID.getParamID()), 1);
     grainDelay2.setParameterValue(parameters.getRawParameterValue(PluginParameters::GRAIN_NETWORK2_PITCH_ID.getParamID()), 2);
     grainDelay2.setParameterValue(parameters.getRawParameterValue(PluginParameters::GRAIN_NETWORK2_INTERVAL_ID.getParamID()), 3);
     grainDelay2.setParameterValue(parameters.getRawParameterValue(PluginParameters::GRAIN_NETWORK2_SIZE_ID.getParamID()), 1);
+#else
+    grainDelay1.setParameterValue(parameters.getRawParameterValue(PluginParameters::GRAIN_NETWORK1_PITCH_ID_STR), 2);
+    grainDelay1.setParameterValue(parameters.getRawParameterValue(PluginParameters::GRAIN_NETWORK1_INTERVAL_ID_STR), 3);
+    grainDelay1.setParameterValue(parameters.getRawParameterValue(PluginParameters::GRAIN_NETWORK1_SIZE_ID_STR), 1);
+    grainDelay2.setParameterValue(parameters.getRawParameterValue(PluginParameters::GRAIN_NETWORK2_PITCH_ID_STR), 2);
+    grainDelay2.setParameterValue(parameters.getRawParameterValue(PluginParameters::GRAIN_NETWORK2_INTERVAL_ID_STR), 3);
+    grainDelay2.setParameterValue(parameters.getRawParameterValue(PluginParameters::GRAIN_NETWORK2_SIZE_ID_STR), 1);
+#endif
 }
 
 void AudioPluginAudioProcessor::stereoToMono(juce::AudioBuffer<float> &targetMonoBlock, juce::AudioBuffer<float> &sourceBlock) {

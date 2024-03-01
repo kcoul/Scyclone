@@ -35,8 +35,11 @@ void InferenceThread::sendAudio(juce::AudioBuffer<float> &buffer) {
         for (float & sample : onnxInputData) {
             sample = receiveRingBuffer.popSample(0);
         }
-
+#if JUCE7
         startThread(juce::Thread::Priority::highest);
+#else
+        startThread(10);
+#endif
     }
     if (init && init_samples >= modelInputSize + maxModelCalcSize) init = false;
 }

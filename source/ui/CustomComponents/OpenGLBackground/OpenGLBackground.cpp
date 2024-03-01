@@ -39,7 +39,11 @@ OpenGLBackground::OpenGLBackground(juce::AudioProcessorValueTreeState& parameter
     resolution_juce.add((float) getHeight());
 
     // dirty work around to make the blobs appear correctly from the beginning
+#if JUCE7
     auto fadeParam = parameters.getParameter(PluginParameters::FADE_ID.getParamID());
+#else
+    auto fadeParam = parameters.getParameter(PluginParameters::FADE_ID_STR);
+#endif
     auto fadeStatus = fadeParam->getValue();
     fadeParam->setValueNotifyingHost(0.5f*fadeStatus);
     fadeParam->setValueNotifyingHost(fadeStatus);

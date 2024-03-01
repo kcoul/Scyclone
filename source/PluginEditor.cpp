@@ -60,7 +60,11 @@ AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor (AudioPluginAud
 
     //setResizable(false, false);
     // dirty work around to make the blobs appear correctly from the beginning
+#if JUCE7
     auto fadeParam = parameters.getParameter(PluginParameters::FADE_ID.getParamID());
+#else
+    auto fadeParam = parameters.getParameter(PluginParameters::FADE_ID_STR);
+#endif
     auto fadeStatus = fadeParam->getValue();
     fadeParam->setValueNotifyingHost(0.5f*fadeStatus);
     fadeParam->setValueNotifyingHost(fadeStatus);
@@ -110,11 +114,19 @@ void AudioPluginAudioProcessorEditor::resized()
 
 void AudioPluginAudioProcessorEditor::parameterChanged(const juce::String &parameterID, float newValue) {
     parameterControl.parameterChanged(parameterID, newValue);
+#if JUCE7
     if (parameterID == PluginParameters::SELECT_NETWORK1_ID.getParamID() && newValue == 1.f) {
         openFileChooser(1);
     } else if (parameterID == PluginParameters::SELECT_NETWORK2_ID.getParamID() && newValue == 1.f) {
         openFileChooser(2);
     }
+#else
+    if (parameterID == PluginParameters::SELECT_NETWORK1_ID_STR && newValue == 1.f) {
+        openFileChooser(1);
+    } else if (parameterID == PluginParameters::SELECT_NETWORK2_ID_STR && newValue == 1.f) {
+        openFileChooser(2);
+    }
+#endif
 }
 
 void AudioPluginAudioProcessorEditor::openFileChooser(int networkID) {
@@ -142,7 +154,11 @@ void AudioPluginAudioProcessorEditor::openFileChooser(int networkID) {
                          if (chosen.getSize() != 0) {
                              processorRef.loadExternalModel(chosen.getFullPathName(), networkID);
                          } else {
+#if JUCE7
                              auto param = (networkID == 1) ? PluginParameters::SELECT_NETWORK1_ID.getParamID() : PluginParameters::SELECT_NETWORK2_ID.getParamID();
+#else
+                             auto param = (networkID == 1) ? PluginParameters::SELECT_NETWORK1_ID_STR : PluginParameters::SELECT_NETWORK2_ID_STR;
+#endif
                              apvts.getParameter(param)->setValueNotifyingHost(0.f);
                          }
 

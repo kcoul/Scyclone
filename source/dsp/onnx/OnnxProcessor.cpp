@@ -21,6 +21,7 @@ OnnxProcessor::OnnxProcessor(juce::AudioProcessorValueTreeState &apvts, int no, 
 }
 
 void OnnxProcessor::parameterChanged(const juce::String &parameterID, float newValue) {
+#if JUCE7
     if (parameterID == PluginParameters::SELECT_NETWORK1_ID.getParamID() && number == 1) {
         auto newValueBool = (bool) newValue;
         if (!newValueBool) {
@@ -38,6 +39,25 @@ void OnnxProcessor::parameterChanged(const juce::String &parameterID, float newV
     } else if (parameterID == PluginParameters::ON_OFF_NETWORK2_ID.getParamID() && number == 2) {
 //        setMuted(!(bool)newValue);
     }
+#else
+    if (parameterID == PluginParameters::SELECT_NETWORK1_ID_STR && number == 1) {
+        auto newValueBool = (bool) newValue;
+        if (!newValueBool) {
+            onOnnxModelLoad(true, "");
+            inferenceThread.setInternalModel();
+        }
+    } else if (parameterID == PluginParameters::SELECT_NETWORK2_ID_STR && number == 2) {
+        auto newValueBool = (bool) newValue;
+        if (!newValueBool) {
+            onOnnxModelLoad(true, "");
+            inferenceThread.setInternalModel();
+        }
+    } else if (parameterID == PluginParameters::ON_OFF_NETWORK1_ID_STR && number == 1) {
+//        setMuted(!(bool) newValue);
+    } else if (parameterID == PluginParameters::ON_OFF_NETWORK2_ID_STR && number == 2) {
+//        setMuted(!(bool)newValue);
+    }
+#endif
 }
 
 void OnnxProcessor::prepare(const juce::dsp::ProcessSpec &spec) {
