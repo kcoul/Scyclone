@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT name="Scyclone" projectType="guiapp" bundleIdentifier="com.torsion-audio.scyclone"
+              version="1.0.0" companyName="Torsion Audio" companyCopyright="Copyright (c) 2024 - Torsion Audio"
+              companyWebsite="https://www.torsion-audio.com/" companyEmail="info@torsion-audio.com"
+              id="yj7xMM" reportAppUsage="0" useAppConfig="0" addUsingNamespaceToJuceHeader="1"
+              jucerFormatVersion="1">
+  <MAINGROUP id="G8kbr7" name="Scyclone">
+    <GROUP id="{104E77B0-A708-063A-7D13-8EB8482EC9A3}" name="assets">
+      <GROUP id="{22E12122-6F5A-F799-C046-39AFCFB0851F}" name="fonts">
+        <FILE id="Paw0HK" name="Inter-Bold.ttf" compile="0" resource="1" file="assets/fonts/Inter-Bold.ttf"/>
+        <FILE id="LBqJnL" name="Inter-Medium.ttf" compile="0" resource="1"
+              file="assets/fonts/Inter-Medium.ttf"/>
+        <FILE id="wkaRRE" name="Inter-Regular.ttf" compile="0" resource="1"
+              file="assets/fonts/Inter-Regular.ttf"/>
+      </GROUP>
+      <GROUP id="{FF42CE3E-26D8-9974-4688-1CEDCBC23682}" name="models">
+        <FILE id="qTAfan" name="djembe.onnx" compile="0" resource="1" file="assets/models/djembe.onnx"
+              xcodeResource="0"/>
+        <FILE id="hcOJAE" name="djembe.ort" compile="0" resource="1" file="assets/models/djembe.ort"
+              xcodeResource="0"/>
+        <FILE id="YK1YOv" name="funk_drums.onnx" compile="0" resource="1" file="assets/models/funk_drums.onnx"
+              xcodeResource="0"/>
+        <FILE id="QkYI2z" name="funk_drums.ort" compile="0" resource="1" file="assets/models/funk_drums.ort"
+              xcodeResource="0"/>
+      </GROUP>
+      <GROUP id="{1BDEDAAD-C59C-A32D-FF83-DDE192864357}" name="openGLShaderPrograms">
+        <FILE id="tir9q7" name="BasicVertex.glsl" compile="0" resource="1"
+              file="assets/openGLShaderPrograms/BasicVertex.glsl"/>
+        <FILE id="SDBsqA" name="blob-3.glsl" compile="0" resource="1" file="assets/openGLShaderPrograms/blob-3.glsl"/>
+        <FILE id="hl5Z5g" name="blob-4.glsl" compile="0" resource="1" file="assets/openGLShaderPrograms/blob-4.glsl"/>
+      </GROUP>
+      <GROUP id="{AE045179-A0AC-733D-F4F2-CC4FC9E7D93C}" name="pictures">
+        <FILE id="EZiJtR" name="Gradient.png" compile="0" resource="1" file="assets/pictures/Gradient.png"/>
+        <FILE id="i7394w" name="Gradient_OpenGL.png" compile="0" resource="1"
+              file="assets/pictures/Gradient_OpenGL.png"/>
+        <FILE id="f0IJUP" name="interface.png" compile="0" resource="1" file="assets/pictures/interface.png"/>
+        <FILE id="z8uRz1" name="logo.png" compile="0" resource="1" file="assets/pictures/logo.png"/>
+        <FILE id="B45TWs" name="logo_type.png" compile="0" resource="1" file="assets/pictures/logo_type.png"/>
+        <FILE id="y0Wrkm" name="signal_flow_control.png" compile="0" resource="1"
+              file="assets/pictures/signal_flow_control.png"/>
+        <FILE id="ZTgx40" name="social_preview.png" compile="0" resource="1"
+              file="assets/pictures/social_preview.png"/>
+      </GROUP>
+      <GROUP id="{A6FC4AE1-C8B7-F522-AE0A-AF12E247C026}" name="svg">
+        <FILE id="IafdmE" name="arrowDownLeft.svg" compile="0" resource="1"
+              file="assets/svg/arrowDownLeft.svg"/>
+        <FILE id="FfslQS" name="arrowDownRight.svg" compile="0" resource="1"
+              file="assets/svg/arrowDownRight.svg"/>
+        <FILE id="MnxOKl" name="arrowUpLeft.svg" compile="0" resource="1" file="assets/svg/arrowUpLeft.svg"/>
+        <FILE id="Ri849l" name="arrowUpRight.svg" compile="0" resource="1"
+              file="assets/svg/arrowUpRight.svg"/>
+        <FILE id="Fru30N" name="detailButtonOff.svg" compile="0" resource="1"
+              file="assets/svg/detailButtonOff.svg"/>
+        <FILE id="XSXutn" name="detailButtonOn.svg" compile="0" resource="1"
+              file="assets/svg/detailButtonOn.svg"/>
+        <FILE id="OhN6xc" name="Gradient.svg" compile="0" resource="1" file="assets/svg/Gradient.svg"/>
+        <FILE id="keNzV8" name="knobButton1.svg" compile="0" resource="1" file="assets/svg/knobButton1.svg"/>
+        <FILE id="YYUVWc" name="knobButton1down.svg" compile="0" resource="1"
+              file="assets/svg/knobButton1down.svg"/>
+        <FILE id="c1tIVW" name="knobButton1normal.svg" compile="0" resource="1"
+              file="assets/svg/knobButton1normal.svg"/>
+        <FILE id="rTLPJC" name="knobButton1over.svg" compile="0" resource="1"
+              file="assets/svg/knobButton1over.svg"/>
+        <FILE id="TRfV2g" name="knobButton2.svg" compile="0" resource="1" file="assets/svg/knobButton2.svg"/>
+        <FILE id="i4AA7F" name="knobButton2down.svg" compile="0" resource="1"
+              file="assets/svg/knobButton2down.svg"/>
+        <FILE id="jzQOpp" name="knobButton2normal.svg" compile="0" resource="1"
+              file="assets/svg/knobButton2normal.svg"/>
+        <FILE id="MnY5V8" name="knobButton2over.svg" compile="0" resource="1"
+              file="assets/svg/knobButton2over.svg"/>
+        <FILE id="WWvjiq" name="knobButton3.svg" compile="0" resource="1" file="assets/svg/knobButton3.svg"/>
+        <FILE id="wfUbCZ" name="knobButton3down.svg" compile="0" resource="1"
+              file="assets/svg/knobButton3down.svg"/>
+        <FILE id="OgnGsr" name="knobButton3normal.svg" compile="0" resource="1"
+              file="assets/svg/knobButton3normal.svg"/>
+        <FILE id="GLKFlG" name="knobButton3over.svg" compile="0" resource="1"
+              file="assets/svg/knobButton3over.svg"/>
+        <FILE id="AampJH" name="Logo.svg" compile="0" resource="1" file="assets/svg/Logo.svg"/>
+        <FILE id="SCtAfp" name="NeuralTransfer.svg" compile="0" resource="1"
+              file="assets/svg/NeuralTransfer.svg"/>
+        <FILE id="cFr0gU" name="Octagon.svg" compile="0" resource="1" file="assets/svg/Octagon.svg"/>
+        <FILE id="q86lAE" name="Scyclone.svg" compile="0" resource="1" file="assets/svg/Scyclone.svg"/>
+        <FILE id="rcdvYE" name="ui_background.svg" compile="0" resource="1"
+              file="assets/svg/ui_background.svg"/>
+      </GROUP>
+    </GROUP>
+    <GROUP id="{20E3F84A-29E9-D5FF-4559-1A9E4A70CD60}" name="source">
+      <GROUP id="{D290497C-DA9F-BB2E-6710-34957BC668CB}" name="dsp">
+        <GROUP id="{BF24E05B-9A4F-737F-6CDA-A2A5257D6A7F}" name="analyser">
+          <FILE id="bwDimZ" name="AudioVisualiser.cpp" compile="1" resource="0"
+                file="source/dsp/analyser/AudioVisualiser.cpp"/>
+          <FILE id="Gf74nV" name="AudioVisualiser.h" compile="0" resource="0"
+                file="source/dsp/analyser/AudioVisualiser.h"/>
+          <FILE id="AyssCu" name="LevelAnalyser.cpp" compile="1" resource="0"
+                file="source/dsp/analyser/LevelAnalyser.cpp"/>
+          <FILE id="GT4ZHz" name="LevelAnalyser.h" compile="0" resource="0" file="source/dsp/analyser/LevelAnalyser.h"/>
+        </GROUP>
+        <GROUP id="{0FB22480-E523-BC8C-EE7A-A0CEC1345A20}" name="compressor">
+          <FILE id="ZevlxD" name="Compressor.cpp" compile="1" resource="0" file="source/dsp/compressor/Compressor.cpp"/>
+          <FILE id="kwqmmA" name="Compressor.h" compile="0" resource="0" file="source/dsp/compressor/Compressor.h"/>
+          <FILE id="YJ7CVy" name="ProcessorCompressor.cpp" compile="1" resource="0"
+                file="source/dsp/compressor/ProcessorCompressor.cpp"/>
+          <FILE id="ZwVDSp" name="ProcessorCompressor.h" compile="0" resource="0"
+                file="source/dsp/compressor/ProcessorCompressor.h"/>
+        </GROUP>
+        <GROUP id="{33CA235F-F50D-38E2-C249-BA58EB3F12EB}" name="Filter">
+          <FILE id="yFdRYd" name="IIRCutoffFilter.cpp" compile="1" resource="0"
+                file="source/dsp/Filter/IIRCutoffFilter.cpp"/>
+          <FILE id="Hnt6e3" name="IIRCutoffFilter.h" compile="0" resource="0"
+                file="source/dsp/Filter/IIRCutoffFilter.h"/>
+        </GROUP>
+        <GROUP id="{DF564492-6217-9BD9-49B1-75BE1BD390DF}" name="gain">
+          <FILE id="X3azFi" name="ProcessorGain.cpp" compile="1" resource="0"
+                file="source/dsp/gain/ProcessorGain.cpp"/>
+          <FILE id="PZbhkY" name="ProcessorGain.h" compile="0" resource="0" file="source/dsp/gain/ProcessorGain.h"/>
+        </GROUP>
+        <GROUP id="{24475F46-A8C5-19CE-609B-A50737A3FA9A}" name="grainDelay">
+          <FILE id="vshBvv" name="GrainDelay.cpp" compile="1" resource="0" file="source/dsp/grainDelay/GrainDelay.cpp"/>
+          <FILE id="LFm2xf" name="GrainDelay.h" compile="0" resource="0" file="source/dsp/grainDelay/GrainDelay.h"/>
+        </GROUP>
+        <GROUP id="{15ADBE0D-5518-4F48-3D3A-6FE7C5392244}" name="mixer">
+          <FILE id="AEpkW4" name="DryWetMixer.cpp" compile="1" resource="0" file="source/dsp/mixer/DryWetMixer.cpp"/>
+          <FILE id="wWIaqr" name="DryWetMixer.h" compile="0" resource="0" file="source/dsp/mixer/DryWetMixer.h"/>
+        </GROUP>
+        <GROUP id="{685F7157-3119-A306-FDB4-BCEBDB3C2AB3}" name="onnx">
+          <FILE id="aw5nKH" name="InferenceThread.cpp" compile="1" resource="0"
+                file="source/dsp/onnx/InferenceThread.cpp"/>
+          <FILE id="lALz7w" name="InferenceThread.h" compile="0" resource="0"
+                file="source/dsp/onnx/InferenceThread.h"/>
+          <FILE id="OMBAcC" name="OnnxProcessor.cpp" compile="1" resource="0"
+                file="source/dsp/onnx/OnnxProcessor.cpp"/>
+          <FILE id="GCXfCp" name="OnnxProcessor.h" compile="0" resource="0" file="source/dsp/onnx/OnnxProcessor.h"/>
+          <FILE id="qh0vw9" name="RingBuffer.cpp" compile="1" resource="0" file="source/dsp/onnx/RingBuffer.cpp"/>
+          <FILE id="xX7wiR" name="RingBuffer.h" compile="0" resource="0" file="source/dsp/onnx/RingBuffer.h"/>
+          <FILE id="QFKo6f" name="WarningWindow.h" compile="0" resource="0" file="source/dsp/onnx/WarningWindow.h"/>
+        </GROUP>
+        <GROUP id="{E42B3D8E-4E90-3FD1-722E-B660C524F4A8}" name="transientSplitter">
+          <FILE id="cHYxIR" name="ProcessorTransientSplitter.cpp" compile="1"
+                resource="0" file="source/dsp/transientSplitter/ProcessorTransientSplitter.cpp"/>
+          <FILE id="Fnl5QI" name="ProcessorTransientSplitter.h" compile="0" resource="0"
+                file="source/dsp/transientSplitter/ProcessorTransientSplitter.h"/>
+          <FILE id="GX6zrY" name="TransientSplitter.cpp" compile="1" resource="0"
+                file="source/dsp/transientSplitter/TransientSplitter.cpp"/>
+          <FILE id="OYbl1a" name="TransientSplitter.h" compile="0" resource="0"
+                file="source/dsp/transientSplitter/TransientSplitter.h"/>
+        </GROUP>
+        <GROUP id="{93FB2A06-9DC6-12FE-42CA-CD1DD00D7661}" name="utils">
+          <FILE id="baIdks" name="Envelope.cpp" compile="1" resource="0" file="source/dsp/utils/Envelope.cpp"/>
+          <FILE id="KR4Ft7" name="Envelope.h" compile="0" resource="0" file="source/dsp/utils/Envelope.h"/>
+          <FILE id="BVvdoP" name="utils.cpp" compile="1" resource="0" file="source/dsp/utils/utils.cpp"/>
+          <FILE id="yON7yk" name="utils.h" compile="0" resource="0" file="source/dsp/utils/utils.h"/>
+        </GROUP>
+      </GROUP>
+      <FILE id="woNZuj" name="Main.cpp" compile="1" resource="0" file="source/Main.cpp"/>
+      <FILE id="GP11pf" name="MainComponent.cpp" compile="1" resource="0"
+            file="source/MainComponent.cpp"/>
+      <FILE id="zqRyxw" name="MainComponent.h" compile="0" resource="0" file="source/MainComponent.h"/>
+      <FILE id="iFwWU6" name="MainWindow.cpp" compile="1" resource="0" file="source/MainWindow.cpp"/>
+      <FILE id="qcwOFf" name="MainWindow.h" compile="0" resource="0" file="source/MainWindow.h"/>
+      <FILE id="z1yjkA" name="PluginEditor.cpp" compile="1" resource="0"
+            file="source/PluginEditor.cpp"/>
+      <FILE id="cgat0A" name="PluginEditor.h" compile="0" resource="0" file="source/PluginEditor.h"/>
+      <FILE id="JlIGCx" name="PluginParameters.cpp" compile="1" resource="0"
+            file="source/PluginParameters.cpp"/>
+      <FILE id="VGzTNA" name="PluginParameters.h" compile="0" resource="0"
+            file="source/PluginParameters.h"/>
+      <FILE id="PnSErA" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="source/PluginProcessor.cpp"/>
+      <FILE id="bU1BrP" name="PluginProcessor.h" compile="0" resource="0"
+            file="source/PluginProcessor.h"/>
+      <GROUP id="{3203F46D-D336-080E-FA87-95C30C831B20}" name="ui">
+        <GROUP id="{1FDE57AE-394A-18D6-B2A7-20E2CB0F4557}" name="CustomComponents">
+          <GROUP id="{83016D07-D465-6561-5D8D-ABAC49E9B2CE}" name="AdvancedParameterControl">
+            <FILE id="k8wmYH" name="AdvancedParameterControl.cpp" compile="1" resource="0"
+                  file="source/ui/CustomComponents/AdvancedParameterControl/AdvancedParameterControl.cpp"/>
+            <FILE id="Y7wREU" name="AdvancedParameterControl.h" compile="0" resource="0"
+                  file="source/ui/CustomComponents/AdvancedParameterControl/AdvancedParameterControl.h"/>
+          </GROUP>
+          <GROUP id="{AAA1C886-E0FE-589B-8248-61DA95B87C09}" name="Header">
+            <FILE id="ZIq5vm" name="HeaderComponent.cpp" compile="1" resource="0"
+                  file="source/ui/CustomComponents/Header/HeaderComponent.cpp"/>
+            <FILE id="JgMhoK" name="HeaderComponent.h" compile="0" resource="0"
+                  file="source/ui/CustomComponents/Header/HeaderComponent.h"/>
+          </GROUP>
+          <GROUP id="{6D654D04-83C0-B7DA-1C1C-F0B1227A876C}" name="OpenGLBackground">
+            <FILE id="sIrqsB" name="OpenGLBackground.cpp" compile="1" resource="0"
+                  file="source/ui/CustomComponents/OpenGLBackground/OpenGLBackground.cpp"/>
+            <FILE id="oL8d7Q" name="OpenGLBackground.h" compile="0" resource="0"
+                  file="source/ui/CustomComponents/OpenGLBackground/OpenGLBackground.h"/>
+            <GROUP id="{BB0086E4-2F51-D72B-E9F0-57C5F3E18E5E}" name="OpenGLUtil">
+              <FILE id="NHeZDK" name="OpenGLUtil.h" compile="0" resource="0" file="source/ui/CustomComponents/OpenGLBackground/OpenGLUtil/OpenGLUtil.h"/>
+            </GROUP>
+            <FILE id="RvWASz" name="ShapeVertices.h" compile="0" resource="0" file="source/ui/CustomComponents/OpenGLBackground/ShapeVertices.h"/>
+          </GROUP>
+          <GROUP id="{D869D6B4-DB28-7F2E-F696-D71F77FC9022}" name="ParameterControl">
+            <FILE id="kb2d3T" name="ParameterControl.cpp" compile="1" resource="0"
+                  file="source/ui/CustomComponents/ParameterControl/ParameterControl.cpp"/>
+            <FILE id="tNtugU" name="ParameterControl.h" compile="0" resource="0"
+                  file="source/ui/CustomComponents/ParameterControl/ParameterControl.h"/>
+            <GROUP id="{EE066A09-6DAF-34F2-AA14-E8F7C93B1E16}" name="Slider">
+              <GROUP id="{5239E800-99BF-A5B8-E260-17836DBC549B}" name="CustomComponents">
+                <FILE id="JcJb1Q" name="CustomLabel.cpp" compile="1" resource="0" file="source/ui/CustomComponents/ParameterControl/Slider/CustomComponents/CustomLabel.cpp"/>
+                <FILE id="qsV7q4" name="CustomLabel.h" compile="0" resource="0" file="source/ui/CustomComponents/ParameterControl/Slider/CustomComponents/CustomLabel.h"/>
+                <FILE id="bt5XMS" name="CustomSlider.cpp" compile="1" resource="0"
+                      file="source/ui/CustomComponents/ParameterControl/Slider/CustomComponents/CustomSlider.cpp"/>
+                <FILE id="IXF15J" name="CustomSlider.h" compile="0" resource="0" file="source/ui/CustomComponents/ParameterControl/Slider/CustomComponents/CustomSlider.h"/>
+              </GROUP>
+              <FILE id="Fgom7M" name="CustomSliderComponent.cpp" compile="1" resource="0"
+                    file="source/ui/CustomComponents/ParameterControl/Slider/CustomSliderComponent.cpp"/>
+              <FILE id="iwOwER" name="CustomSliderComponent.h" compile="0" resource="0"
+                    file="source/ui/CustomComponents/ParameterControl/Slider/CustomSliderComponent.h"/>
+            </GROUP>
+          </GROUP>
+          <GROUP id="{F0D02EA6-9918-2ADB-E289-2013AAB4AC08}" name="Texture">
+            <FILE id="AScakM" name="TextureComponent.cpp" compile="1" resource="0"
+                  file="source/ui/CustomComponents/Texture/TextureComponent.cpp"/>
+            <FILE id="ENOgDW" name="TextureComponent.h" compile="0" resource="0"
+                  file="source/ui/CustomComponents/Texture/TextureComponent.h"/>
+          </GROUP>
+          <GROUP id="{69118E89-1E67-63DC-448E-806327246ABC}" name="TransientViewer">
+            <FILE id="tM7Yud" name="TransientGrid.cpp" compile="1" resource="0"
+                  file="source/ui/CustomComponents/TransientViewer/TransientGrid.cpp"/>
+            <FILE id="MSYqbC" name="TransientGrid.h" compile="0" resource="0" file="source/ui/CustomComponents/TransientViewer/TransientGrid.h"/>
+            <FILE id="DZTV8J" name="TransientViewer.cpp" compile="1" resource="0"
+                  file="source/ui/CustomComponents/TransientViewer/TransientViewer.cpp"/>
+            <FILE id="qprsLQ" name="TransientViewer.h" compile="0" resource="0"
+                  file="source/ui/CustomComponents/TransientViewer/TransientViewer.h"/>
+          </GROUP>
+          <GROUP id="{8F7FF958-53EC-E026-620D-AEA4CF8E01D5}" name="XYPad">
+            <FILE id="l067Bp" name="Arrow.cpp" compile="1" resource="0" file="source/ui/CustomComponents/XYPad/Arrow.cpp"/>
+            <FILE id="zKbDIy" name="Arrow.h" compile="0" resource="0" file="source/ui/CustomComponents/XYPad/Arrow.h"/>
+            <FILE id="Pw3wf3" name="ArrowButton.cpp" compile="1" resource="0" file="source/ui/CustomComponents/XYPad/ArrowButton.cpp"/>
+            <FILE id="VaOkbj" name="ArrowButton.h" compile="0" resource="0" file="source/ui/CustomComponents/XYPad/ArrowButton.h"/>
+            <FILE id="a7inQp" name="XYKnob.cpp" compile="1" resource="0" file="source/ui/CustomComponents/XYPad/XYKnob.cpp"/>
+            <FILE id="PW8adm" name="XYKnob.h" compile="0" resource="0" file="source/ui/CustomComponents/XYPad/XYKnob.h"/>
+            <FILE id="t1K60u" name="XYPad.cpp" compile="1" resource="0" file="source/ui/CustomComponents/XYPad/XYPad.cpp"/>
+            <FILE id="Zcpabv" name="XYPad.h" compile="0" resource="0" file="source/ui/CustomComponents/XYPad/XYPad.h"/>
+          </GROUP>
+        </GROUP>
+        <GROUP id="{AC8AF8DE-229B-0D31-8EE5-75DF20FAD847}" name="LookAndFeel"/>
+      </GROUP>
+      <GROUP id="{DA1ECF8B-DA55-241B-FB37-6BA4985E6A5D}" name="utils">
+        <FILE id="wNwWMQ" name="colors.h" compile="0" resource="0" file="source/utils/colors.h"/>
+      </GROUP>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX" smallIcon="YyqWd2" bigIcon="YyqWd2"
+               microphonePermissionNeeded="1" cameraPermissionNeeded="1" applicationCategory="public.app-category.developer-tools"
+               iosBluetoothPermissionNeeded="1" externalLibraries="onnxruntime">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" recommendedWarnings="LLVM" headerPath="../../modules/onnxruntime/include"/>
+        <CONFIGURATION isDebug="0" name="Release" recommendedWarnings="LLVM" headerPath="../../modules/onnxruntime/include"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_events" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_graphics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_data_structures" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_cryptography" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_box2d" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_dsp" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_product_unlocking" path="modules/JUCE_6.1.6/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile" smallIcon="YyqWd2" bigIcon="YyqWd2">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug"/>
+        <CONFIGURATION isDebug="0" name="Release"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_product_unlocking" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_graphics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_events" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_dsp" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_data_structures" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_cryptography" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_core" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_box2d" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+    <ANDROIDSTUDIO targetFolder="Builds/Android" androidMinimumSDK="23" microphonePermissionNeeded="1"
+                   androidExternalWriteNeeded="1" androidEnableContentSharing="1"
+                   androidExtraAssetsFolder="../Assets" smallIcon="YyqWd2" bigIcon="YyqWd2"
+                   cameraPermissionNeeded="1" androidTargetSDK="31" androidReadMediaAudioPermission="1"
+                   androidReadMediaImagesPermission="1" androidReadMediaVideoPermission="1"
+                   androidBluetoothScanNeeded="1" androidBluetoothAdvertiseNeeded="1"
+                   androidBluetoothConnectNeeded="1">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" recommendedWarnings="LLVM"/>
+        <CONFIGURATION isDebug="0" name="Release" recommendedWarnings="LLVM"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_product_unlocking" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_graphics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_events" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_dsp" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_data_structures" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_cryptography" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_core" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_box2d" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
+      </MODULEPATHS>
+    </ANDROIDSTUDIO>
+    <XCODE_IPHONE targetFolder="Builds/iOS" UISupportsDocumentBrowser="1" microphonePermissionNeeded="1"
+                  cameraPermissionNeeded="1" iCloudPermissions="1" UIFileSharingEnabled="1"
+                  smallIcon="YyqWd2" bigIcon="YyqWd2" iosBluetoothPermissionNeeded="1"
+                  iosScreenOrientation="UIInterfaceOrientationLandscapeLeft,UIInterfaceOrientationLandscapeRight,UIInterfaceOrientationPortrait,UIInterfaceOrientationPortraitUpsideDown"
+                  iPadScreenOrientation="UIInterfaceOrientationLandscapeLeft,UIInterfaceOrientationLandscapeRight,UIInterfaceOrientationPortrait,UIInterfaceOrientationPortraitUpsideDown"
+                  UIRequiresFullScreen="0">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" recommendedWarnings="LLVM"/>
+        <CONFIGURATION isDebug="0" name="Release" recommendedWarnings="LLVM"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_product_unlocking" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_graphics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_events" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_dsp" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_data_structures" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_cryptography" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_core" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_box2d" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
+      </MODULEPATHS>
+    </XCODE_IPHONE>
+    <VS2017 targetFolder="Builds/VisualStudio2017" smallIcon="YyqWd2" bigIcon="YyqWd2"
+            extraCompilerFlags="/w44265 /w45038 /w44062">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug"/>
+        <CONFIGURATION isDebug="0" name="Release" useRuntimeLibDLL="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_product_unlocking" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_graphics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_events" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_dsp" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_data_structures" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_cryptography" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_core" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_box2d" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
+      </MODULEPATHS>
+    </VS2017>
+    <VS2019 targetFolder="Builds/VisualStudio2019" smallIcon="YyqWd2" bigIcon="YyqWd2"
+            extraCompilerFlags="/w44265 /w45038 /w44062">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="DemoRunner"/>
+        <CONFIGURATION isDebug="0" name="Release" useRuntimeLibDLL="0" targetName="DemoRunner"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_product_unlocking" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_graphics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_events" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_dsp" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_data_structures" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_cryptography" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_core" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_box2d" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
+      </MODULEPATHS>
+    </VS2019>
+    <VS2022 targetFolder="Builds/VisualStudio2022" smallIcon="YyqWd2" bigIcon="YyqWd2"
+            extraCompilerFlags="/w44265 /w45038 /w44062">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="DemoRunner"/>
+        <CONFIGURATION isDebug="0" name="Release" useRuntimeLibDLL="0" targetName="DemoRunner"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_product_unlocking" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_graphics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_events" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_dsp" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_data_structures" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_cryptography" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_core" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_box2d" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_box2d" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_product_unlocking" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="0"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_USE_CAMERA="1" JUCE_USE_MP3AUDIOFORMAT="1" JUCE_ALLOW_STATIC_NULL_VARIABLES="0"
+               JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <LIVE_SETTINGS>
+    <OSX/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>
