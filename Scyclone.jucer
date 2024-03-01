@@ -6,6 +6,14 @@
               id="yj7xMM" reportAppUsage="0" useAppConfig="0" addUsingNamespaceToJuceHeader="1"
               jucerFormatVersion="1">
   <MAINGROUP id="G8kbr7" name="Scyclone">
+    <GROUP id="{7B971739-A9E8-39B9-10F8-AC10314F7462}" name="app">
+      <FILE id="XgJzPV" name="Main.cpp" compile="1" resource="0" file="app/Main.cpp"/>
+      <FILE id="y1L9wD" name="MainComponent.cpp" compile="1" resource="0"
+            file="app/MainComponent.cpp"/>
+      <FILE id="v95mUn" name="MainComponent.h" compile="0" resource="0" file="app/MainComponent.h"/>
+      <FILE id="m8TaJn" name="MainWindow.cpp" compile="1" resource="0" file="app/MainWindow.cpp"/>
+      <FILE id="cRl2az" name="MainWindow.h" compile="0" resource="0" file="app/MainWindow.h"/>
+    </GROUP>
     <GROUP id="{104E77B0-A708-063A-7D13-8EB8482EC9A3}" name="assets">
       <GROUP id="{22E12122-6F5A-F799-C046-39AFCFB0851F}" name="fonts">
         <FILE id="Paw0HK" name="Inter-Bold.ttf" compile="0" resource="1" file="assets/fonts/Inter-Bold.ttf"/>
@@ -85,6 +93,16 @@
               file="assets/svg/ui_background.svg"/>
       </GROUP>
     </GROUP>
+    <GROUP id="{22B50136-FFE6-F754-E4DC-535691B84299}" name="modules">
+      <GROUP id="{14C0E2B1-01FB-6939-0A5E-BC41C2CC5382}" name="RnboExport">
+        <GROUP id="{DC065B77-0457-92C3-6206-F16FA4926C47}" name="rnbo">
+          <FILE id="U2cCeY" name="RNBO.cpp" compile="1" resource="0" file="modules/RnboExport/rnbo/RNBO.cpp"/>
+          <FILE id="zg6W6E" name="RNBO.h" compile="0" resource="0" file="modules/RnboExport/rnbo/RNBO.h"/>
+        </GROUP>
+        <FILE id="Mb8OQM" name="rnbo_granular.cpp" compile="1" resource="0"
+              file="modules/RnboExport/rnbo_granular.cpp"/>
+      </GROUP>
+    </GROUP>
     <GROUP id="{20E3F84A-29E9-D5FF-4559-1A9E4A70CD60}" name="source">
       <GROUP id="{D290497C-DA9F-BB2E-6710-34957BC668CB}" name="dsp">
         <GROUP id="{BF24E05B-9A4F-737F-6CDA-A2A5257D6A7F}" name="analyser">
@@ -152,23 +170,6 @@
           <FILE id="yON7yk" name="utils.h" compile="0" resource="0" file="source/dsp/utils/utils.h"/>
         </GROUP>
       </GROUP>
-      <FILE id="woNZuj" name="Main.cpp" compile="1" resource="0" file="source/Main.cpp"/>
-      <FILE id="GP11pf" name="MainComponent.cpp" compile="1" resource="0"
-            file="source/MainComponent.cpp"/>
-      <FILE id="zqRyxw" name="MainComponent.h" compile="0" resource="0" file="source/MainComponent.h"/>
-      <FILE id="iFwWU6" name="MainWindow.cpp" compile="1" resource="0" file="source/MainWindow.cpp"/>
-      <FILE id="qcwOFf" name="MainWindow.h" compile="0" resource="0" file="source/MainWindow.h"/>
-      <FILE id="z1yjkA" name="PluginEditor.cpp" compile="1" resource="0"
-            file="source/PluginEditor.cpp"/>
-      <FILE id="cgat0A" name="PluginEditor.h" compile="0" resource="0" file="source/PluginEditor.h"/>
-      <FILE id="JlIGCx" name="PluginParameters.cpp" compile="1" resource="0"
-            file="source/PluginParameters.cpp"/>
-      <FILE id="VGzTNA" name="PluginParameters.h" compile="0" resource="0"
-            file="source/PluginParameters.h"/>
-      <FILE id="PnSErA" name="PluginProcessor.cpp" compile="1" resource="0"
-            file="source/PluginProcessor.cpp"/>
-      <FILE id="bU1BrP" name="PluginProcessor.h" compile="0" resource="0"
-            file="source/PluginProcessor.h"/>
       <GROUP id="{3203F46D-D336-080E-FA87-95C30C831B20}" name="ui">
         <GROUP id="{1FDE57AE-394A-18D6-B2A7-20E2CB0F4557}" name="CustomComponents">
           <GROUP id="{83016D07-D465-6561-5D8D-ABAC49E9B2CE}" name="AdvancedParameterControl">
@@ -238,20 +239,36 @@
             <FILE id="Zcpabv" name="XYPad.h" compile="0" resource="0" file="source/ui/CustomComponents/XYPad/XYPad.h"/>
           </GROUP>
         </GROUP>
-        <GROUP id="{AC8AF8DE-229B-0D31-8EE5-75DF20FAD847}" name="LookAndFeel"/>
+        <GROUP id="{AC8AF8DE-229B-0D31-8EE5-75DF20FAD847}" name="LookAndFeel">
+          <FILE id="nXUMYO" name="CustomFontLookAndFeel.h" compile="0" resource="0"
+                file="source/ui/LookAndFeel/CustomFontLookAndFeel.h"/>
+          <FILE id="CfKBeE" name="CustomLabelLookAndFeel.h" compile="0" resource="0"
+                file="source/ui/LookAndFeel/CustomLabelLookAndFeel.h"/>
+          <FILE id="WNPeMM" name="SliderLookAndFeel.cpp" compile="1" resource="0"
+                file="source/ui/LookAndFeel/SliderLookAndFeel.cpp"/>
+          <FILE id="xcGxcb" name="SliderLookAndFeel.h" compile="0" resource="0"
+                file="source/ui/LookAndFeel/SliderLookAndFeel.h"/>
+        </GROUP>
       </GROUP>
       <GROUP id="{DA1ECF8B-DA55-241B-FB37-6BA4985E6A5D}" name="utils">
         <FILE id="wNwWMQ" name="colors.h" compile="0" resource="0" file="source/utils/colors.h"/>
       </GROUP>
+      <FILE id="USssqh" name="PluginParameters.cpp" compile="1" resource="0"
+            file="source/PluginParameters.cpp"/>
+      <FILE id="mBdqC2" name="PluginParameters.h" compile="0" resource="0"
+            file="source/PluginParameters.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" smallIcon="YyqWd2" bigIcon="YyqWd2"
                microphonePermissionNeeded="1" cameraPermissionNeeded="1" applicationCategory="public.app-category.developer-tools"
-               iosBluetoothPermissionNeeded="1" externalLibraries="onnxruntime">
+               iosBluetoothPermissionNeeded="1" externalLibraries="onnxruntime"
+               extraDefs="JUCE_APP=1">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" recommendedWarnings="LLVM" headerPath="../../modules/onnxruntime/include"/>
-        <CONFIGURATION isDebug="0" name="Release" recommendedWarnings="LLVM" headerPath="../../modules/onnxruntime/include"/>
+        <CONFIGURATION isDebug="1" name="Debug" recommendedWarnings="LLVM" headerPath="../../modules/onnxruntime/include&#10;../../modules/RnboExport/rnbo&#10;../../modules/RnboExport/rnbo/common"
+                       libraryPath="../../modules/onnxruntime/lib/macos-universal"/>
+        <CONFIGURATION isDebug="0" name="Release" recommendedWarnings="LLVM" headerPath="../../modules/onnxruntime/include&#10;../../modules/RnboExport/rnbo&#10;../../modules/RnboExport/rnbo/common"
+                       libraryPath="../../modules/onnxruntime/lib/macos-universal"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="modules/JUCE_6.1.6/modules"/>
@@ -269,6 +286,7 @@
         <MODULEPATH id="juce_box2d" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_dsp" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_product_unlocking" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_opengl" path="modules/JUCE_6.1.6/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile" smallIcon="YyqWd2" bigIcon="YyqWd2">
@@ -292,6 +310,7 @@
         <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_opengl" path="modules/JUCE_6.1.6/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
     <ANDROIDSTUDIO targetFolder="Builds/Android" androidMinimumSDK="23" microphonePermissionNeeded="1"
@@ -321,6 +340,7 @@
         <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_opengl" path="modules/JUCE_6.1.6/modules"/>
       </MODULEPATHS>
     </ANDROIDSTUDIO>
     <XCODE_IPHONE targetFolder="Builds/iOS" UISupportsDocumentBrowser="1" microphonePermissionNeeded="1"
@@ -349,6 +369,7 @@
         <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_opengl" path="modules/JUCE_6.1.6/modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
     <VS2017 targetFolder="Builds/VisualStudio2017" smallIcon="YyqWd2" bigIcon="YyqWd2"
@@ -373,6 +394,7 @@
         <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_opengl" path="modules/JUCE_6.1.6/modules"/>
       </MODULEPATHS>
     </VS2017>
     <VS2019 targetFolder="Builds/VisualStudio2019" smallIcon="YyqWd2" bigIcon="YyqWd2"
@@ -397,6 +419,7 @@
         <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_opengl" path="modules/JUCE_6.1.6/modules"/>
       </MODULEPATHS>
     </VS2019>
     <VS2022 targetFolder="Builds/VisualStudio2022" smallIcon="YyqWd2" bigIcon="YyqWd2"
@@ -421,6 +444,7 @@
         <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
+        <MODULEPATH id="juce_opengl" path="modules/JUCE_6.1.6/modules"/>
       </MODULEPATHS>
     </VS2022>
   </EXPORTFORMATS>
@@ -439,6 +463,7 @@
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_product_unlocking" showAllCode="1" useLocalCopy="0"
             useGlobalPath="0"/>
   </MODULES>

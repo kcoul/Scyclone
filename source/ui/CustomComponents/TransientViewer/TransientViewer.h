@@ -13,7 +13,12 @@ public:
 	void resized() override;
 
 private:
+#ifndef JUCE_APP
     juce::AudioVisualiserComponent& waveViewerNetwork1;
     juce::AudioVisualiserComponent& waveViewerNetwork2;
+#else
+    juce::AudioVisualiserComponent waveViewerNetwork1;
+    juce::AudioVisualiserComponent waveViewerNetwork2;
+#endif
     TransientGrid transientGrid;
 };

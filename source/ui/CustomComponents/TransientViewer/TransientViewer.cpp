@@ -1,7 +1,12 @@
 #include "TransientViewer.h"
 
+#ifndef JUCE_APP
 TransientViewer::TransientViewer(AudioPluginAudioProcessor& p) : waveViewerNetwork1(p.getAudioVisualiser1()),
                                                                  waveViewerNetwork2(p.getAudioVisualiser2())
+#else
+TransientViewer::TransientViewer(AudioPluginAudioProcessor& p) : waveViewerNetwork1(1),
+                                                                 waveViewerNetwork2(1)
+#endif
 {
     addAndMakeVisible(waveViewerNetwork1);
     addAndMakeVisible(waveViewerNetwork2);

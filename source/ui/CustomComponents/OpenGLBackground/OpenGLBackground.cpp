@@ -33,8 +33,10 @@ OpenGLBackground::OpenGLBackground(juce::AudioProcessorValueTreeState& parameter
     SetJuceLabels();
     addAndMakeVisible(openGlTextureComponent);
     
-    processorRef.setLevelType(PEAK);
-
+#ifndef JUCE_APP
+        processorRef.setLevelType(PEAK);
+#endif
+    
     resolution_juce.add((float) getWidth());
     resolution_juce.add((float) getHeight());
 
@@ -121,11 +123,21 @@ void OpenGLBackground::renderOpenGL()
     if (knobPos1) knobPos1->set(knobPos1_juce.xPosition,knobPos1_juce.yPosition);
     if (knobPos2) knobPos2->set(knobPos2_juce.xPosition,knobPos2_juce.yPosition);
     if (audioLevel1){
+#ifndef JUCE_APP
         audioLevel1_juce = processorRef.getCurrentLevel(1);
+#else
+        //TODO: Get the audio level from application
+        audioLevel1_juce = 0.f;
+#endif
         audioLevel1->set(static_cast<GLfloat>(audioLevel1_juce));
     }
     if (audioLevel2){
+#ifndef JUCE_APP
         audioLevel2_juce = processorRef.getCurrentLevel(2);
+#else
+        //TODO: Get the audio level from application
+        audioLevel2_juce = 0.f;
+#endif
         audioLevel2->set(static_cast<GLfloat>(audioLevel2_juce));
     }
     

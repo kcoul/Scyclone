@@ -5,8 +5,8 @@ namespace AudioApp
 class GuiAppTemplateApplication : public juce::JUCEApplication
 {
 public:
-    const juce::String getApplicationName() override { return JUCE_APPLICATION_NAME_STRING; }
-    const juce::String getApplicationVersion() override { return JUCE_APPLICATION_VERSION_STRING; }
+    const juce::String getApplicationName() override { return "Scyclone"; }
+    const juce::String getApplicationVersion() override { return "1.0.0"; }
     bool moreThanOneInstanceAllowed() override { return true; }
 
     void initialise(const juce::String& /*commandLine*/) override
