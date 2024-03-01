@@ -184,16 +184,6 @@
             <FILE id="JgMhoK" name="HeaderComponent.h" compile="0" resource="0"
                   file="source/ui/CustomComponents/Header/HeaderComponent.h"/>
           </GROUP>
-          <GROUP id="{6D654D04-83C0-B7DA-1C1C-F0B1227A876C}" name="OpenGLBackground">
-            <FILE id="sIrqsB" name="OpenGLBackground.cpp" compile="1" resource="0"
-                  file="source/ui/CustomComponents/OpenGLBackground/OpenGLBackground.cpp"/>
-            <FILE id="oL8d7Q" name="OpenGLBackground.h" compile="0" resource="0"
-                  file="source/ui/CustomComponents/OpenGLBackground/OpenGLBackground.h"/>
-            <GROUP id="{BB0086E4-2F51-D72B-E9F0-57C5F3E18E5E}" name="OpenGLUtil">
-              <FILE id="NHeZDK" name="OpenGLUtil.h" compile="0" resource="0" file="source/ui/CustomComponents/OpenGLBackground/OpenGLUtil/OpenGLUtil.h"/>
-            </GROUP>
-            <FILE id="RvWASz" name="ShapeVertices.h" compile="0" resource="0" file="source/ui/CustomComponents/OpenGLBackground/ShapeVertices.h"/>
-          </GROUP>
           <GROUP id="{D869D6B4-DB28-7F2E-F696-D71F77FC9022}" name="ParameterControl">
             <FILE id="kb2d3T" name="ParameterControl.cpp" compile="1" resource="0"
                   file="source/ui/CustomComponents/ParameterControl/ParameterControl.cpp"/>
@@ -286,7 +276,6 @@
         <MODULEPATH id="juce_box2d" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_dsp" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_product_unlocking" path="modules/JUCE_6.1.6/modules"/>
-        <MODULEPATH id="juce_opengl" path="modules/JUCE_6.1.6/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile" smallIcon="YyqWd2" bigIcon="YyqWd2">
@@ -310,7 +299,6 @@
         <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
-        <MODULEPATH id="juce_opengl" path="modules/JUCE_6.1.6/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
     <ANDROIDSTUDIO targetFolder="Builds/Android" androidMinimumSDK="23" microphonePermissionNeeded="1"
@@ -340,7 +328,6 @@
         <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
-        <MODULEPATH id="juce_opengl" path="modules/JUCE_6.1.6/modules"/>
       </MODULEPATHS>
     </ANDROIDSTUDIO>
     <XCODE_IPHONE targetFolder="Builds/iOS" UISupportsDocumentBrowser="1" microphonePermissionNeeded="1"
@@ -369,7 +356,6 @@
         <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
-        <MODULEPATH id="juce_opengl" path="modules/JUCE_6.1.6/modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
     <VS2017 targetFolder="Builds/VisualStudio2017" smallIcon="YyqWd2" bigIcon="YyqWd2"
@@ -394,7 +380,6 @@
         <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
-        <MODULEPATH id="juce_opengl" path="modules/JUCE_6.1.6/modules"/>
       </MODULEPATHS>
     </VS2017>
     <VS2019 targetFolder="Builds/VisualStudio2019" smallIcon="YyqWd2" bigIcon="YyqWd2"
@@ -419,7 +404,6 @@
         <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
-        <MODULEPATH id="juce_opengl" path="modules/JUCE_6.1.6/modules"/>
       </MODULEPATHS>
     </VS2019>
     <VS2022 targetFolder="Builds/VisualStudio2022" smallIcon="YyqWd2" bigIcon="YyqWd2"
@@ -444,7 +428,6 @@
         <MODULEPATH id="juce_audio_formats" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_devices" path="modules/JUCE_6.1.6/modules"/>
         <MODULEPATH id="juce_audio_basics" path="modules/JUCE_6.1.6/modules"/>
-        <MODULEPATH id="juce_opengl" path="modules/JUCE_6.1.6/modules"/>
       </MODULEPATHS>
     </VS2022>
   </EXPORTFORMATS>
@@ -463,7 +446,6 @@
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_product_unlocking" showAllCode="1" useLocalCopy="0"
             useGlobalPath="0"/>
   </MODULES>
