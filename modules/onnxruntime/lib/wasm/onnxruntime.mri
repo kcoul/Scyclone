@@ -1,0 +1,23 @@
+create /home/usdev/repos/Scyclone/modules/onnxruntime/lib/wasm/libonnxruntime.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/libonnx.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/libonnxruntime_graph.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/libonnx_proto.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/libonnxruntime_mlas.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/libonnxruntime_optimizer.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/libonnxruntime_providers.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/libonnxruntime_common.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/libonnxruntime_session.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/libonnxruntime_flatbuffers.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/libonnxruntime_framework.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/libonnxruntime_util.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/_deps/re2-build/libre2.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/_deps/google_nsync-build/libnsync_cpp.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/_deps/protobuf-build/libprotobuf-lite.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/_deps/abseil_cpp-build/absl/hash/libabsl_hash.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/_deps/abseil_cpp-build/absl/hash/libabsl_city.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/_deps/abseil_cpp-build/absl/hash/libabsl_low_level_hash.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/_deps/abseil_cpp-build/absl/base/libabsl_throw_delegate.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/_deps/abseil_cpp-build/absl/container/libabsl_raw_hash_set.a
+addlib /home/usdev/repos/ort-builder/onnxruntime/build/wasm/MinSizeRel/_deps/abseil_cpp-build/absl/base/libabsl_raw_logging_internal.a
+save
+end
