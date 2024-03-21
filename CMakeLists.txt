@@ -156,6 +156,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 			MAP_IMPORTED_CONFIG_RELWITHDEBINFO Release
 			)
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+	message("CMAKE_HOST_SYSTEM_PROCESSOR is ${CMAKE_HOST_SYSTEM_PROCESSOR}")
 	add_library(onnxruntime SHARED IMPORTED)
 	if(CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "arm64")
 		set_property(TARGET onnxruntime PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_LIST_DIR}/modules/onnxruntime/lib/linux-arm64/libonnxruntime.so)
