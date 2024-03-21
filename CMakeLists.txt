@@ -6,7 +6,7 @@
 cmake_minimum_required(VERSION 3.24)
 
 # Sets the minimum macOS version
-if (APPLE)
+if(CMAKE_SYSTEM_NAME MATCHES "Darwin")
 	set(CMAKE_OSX_DEPLOYMENT_TARGET "10.13" CACHE STRING "Minimum version of the target platform" FORCE) 
 	if(CMAKE_OSX_DEPLOYMENT_TARGET)
 		message("The minimum macOS version is set to " $CACHE{CMAKE_OSX_DEPLOYMENT_TARGET}.)
@@ -20,10 +20,14 @@ endif ()
 project(Scyclone VERSION 0.0.3)
 set (TARGET_NAME ${PROJECT_NAME})
 
-if(APPLE)
+if(CMAKE_SYSTEM_NAME MATCHES "Darwin")
 	set (FORMATS_TO_BUILD AU VST3 Standalone)
 else()
 	set (FORMATS_TO_BUILD VST3 Standalone)
+endif()
+
+if(CMAKE_SYSTEM_NAME MATCHES "Linux")
+	set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 endif()
 
 #static linking runtime library in Windows (for onnxruntime)
@@ -62,7 +66,7 @@ juce_add_plugin(${TARGET_NAME}
 		PLUGIN_CODE SCYC                            # A unique four-character plugin id with exactly one upper-case character
 		# GarageBand 10.3 requires the first letter to be upper-case, and the remaining letters to be lower-case
 
-		if(APPLE)
+		if(CMAKE_SYSTEM_NAME MATCHES "Darwin")
 			HARDENED_RUNTIME_ENABLED TRUE
 			HARDENED_RUNTIME_OPTIONS "com.apple.security.device.audio-input"
 			MICROPHONE_PERMISSION_ENABLED TRUE
