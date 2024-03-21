@@ -133,9 +133,8 @@ target_compile_definitions(${TARGET_NAME}
 target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/modules/onnxruntime/include)
 
 # Add the onnxruntime library
-add_library(onnxruntime STATIC IMPORTED)
-
-if (APPLE)
+if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+	add_library(onnxruntime STATIC IMPORTED)
 	if(NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/modules/onnxruntime/lib/macos-universal/libonnxruntime.a)
 		message("Unzipping universal macOS onnx build")
 		execute_process(
@@ -144,9 +143,9 @@ if (APPLE)
 		)
 	endif()
 	set_property(TARGET onnxruntime PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_LIST_DIR}/modules/onnxruntime/lib/macos-universal/libonnxruntime.a)
-elseif (MSVC)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+	add_library(onnxruntime STATIC IMPORTED)
 	set_property(TARGET onnxruntime APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-
 	set_target_properties(onnxruntime PROPERTIES
 			IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
 			IMPORTED_LOCATION_RELEASE "${CMAKE_CURRENT_LIST_DIR}/modules/onnxruntime/lib/onnxruntime-win-x64.lib"
@@ -156,6 +155,13 @@ elseif (MSVC)
 			MAP_IMPORTED_CONFIG_MINSIZEREL Release
 			MAP_IMPORTED_CONFIG_RELWITHDEBINFO Release
 			)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+	add_library(onnxruntime SHARED IMPORTED)
+	if(CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "arm64")
+		set_property(TARGET onnxruntime PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_LIST_DIR}/modules/onnxruntime/lib/linux-arm64/libonnxruntime.so)
+	elseif(CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "x86_64")
+
+	endif()
 endif()
 
 
