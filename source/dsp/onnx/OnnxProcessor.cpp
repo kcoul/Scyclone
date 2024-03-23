@@ -68,7 +68,7 @@ void OnnxProcessor::prepare(const juce::dsp::ProcessSpec &spec) {
     calculateLatency((int)spec.maximumBlockSize);
 
     if (spec.sampleRate != 48000.0) {
-        warningWindow.showWarningWindow(SampleRateWarning);
+        warningWindow.showWarningWindow(SampleRateWarning, spec.sampleRate);
     }
 }
 

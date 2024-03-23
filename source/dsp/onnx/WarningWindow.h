@@ -18,14 +18,14 @@ public:
     WarningWindow() {
 
     }
-    void showWarningWindow(WarningType type) {
+    void showWarningWindow(WarningType type, double sampleRate=-1.0) {
 
         juce::String errorMessage;
         juce::String title;
 
         switch (type) {
             case SampleRateWarning:
-                title = "Warning: unsupported sample rate";
+                title = "Warning: unsupported sample rate of " + juce::String(sampleRate);
                 errorMessage = "This plugin is still in alpha. At the moment only a sample rate of 48kHz is supported.";
                 break;
             case SystemTooSlow:
