@@ -126,10 +126,10 @@ void AudioPluginAudioProcessor::changeProgramName (int index, const juce::String
 
 //==============================================================================
 void AudioPluginAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock) {
-    juce::dsp::ProcessSpec spec {sampleRate,
+    juce::dsp::ProcessSpec spec {48000,
                                  static_cast<juce::uint32>(samplesPerBlock),
                                  static_cast<juce::uint32>(getTotalNumInputChannels())};
-    juce::dsp::ProcessSpec monoSpec {sampleRate,
+    juce::dsp::ProcessSpec monoSpec {48000,
                                  static_cast<juce::uint32>(samplesPerBlock),
                                  static_cast<juce::uint32>(1)};
 
