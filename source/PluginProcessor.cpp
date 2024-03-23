@@ -126,46 +126,48 @@ void AudioPluginAudioProcessor::changeProgramName (int index, const juce::String
 
 //==============================================================================
 void AudioPluginAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock) {
-    juce::dsp::ProcessSpec spec {48000,
-                                 static_cast<juce::uint32>(samplesPerBlock),
-                                 static_cast<juce::uint32>(getTotalNumInputChannels())};
-    juce::dsp::ProcessSpec monoSpec {48000,
-                                 static_cast<juce::uint32>(samplesPerBlock),
-                                 static_cast<juce::uint32>(1)};
+    if (sampleRate > 0) {
+        juce::dsp::ProcessSpec spec{sampleRate,
+                                    static_cast<juce::uint32>(samplesPerBlock),
+                                    static_cast<juce::uint32>(getTotalNumInputChannels())};
+        juce::dsp::ProcessSpec monoSpec{sampleRate,
+                                        static_cast<juce::uint32>(samplesPerBlock),
+                                        static_cast<juce::uint32>(1)};
 
-    network1Buffer.setSize((int) monoSpec.numChannels, (int) monoSpec.maximumBlockSize);
-    network2Buffer.setSize((int) monoSpec.numChannels, (int) monoSpec.maximumBlockSize);
-    fadeBuffer.setSize((int) monoSpec.numChannels, (int) monoSpec.maximumBlockSize);
-    grain1DryBuffer.setSize((int) monoSpec.numChannels, (int) monoSpec.maximumBlockSize);
-    grain2DryBuffer.setSize((int) monoSpec.numChannels, (int) monoSpec.maximumBlockSize);
-    monoBuffer.setSize((int) monoSpec.numChannels, (int) monoSpec.maximumBlockSize);
+        network1Buffer.setSize((int) monoSpec.numChannels, (int) monoSpec.maximumBlockSize);
+        network2Buffer.setSize((int) monoSpec.numChannels, (int) monoSpec.maximumBlockSize);
+        fadeBuffer.setSize((int) monoSpec.numChannels, (int) monoSpec.maximumBlockSize);
+        grain1DryBuffer.setSize((int) monoSpec.numChannels, (int) monoSpec.maximumBlockSize);
+        grain2DryBuffer.setSize((int) monoSpec.numChannels, (int) monoSpec.maximumBlockSize);
+        monoBuffer.setSize((int) monoSpec.numChannels, (int) monoSpec.maximumBlockSize);
 
-    dryWetMixer.prepare(spec);
-    
-    fadeMixer.prepare(monoSpec);
-    compMixer.prepare(monoSpec);
-    grain1DryWetMixer.prepare(monoSpec);
-    grain2DryWetMixer.prepare(monoSpec);
-    onnxProcessor1.prepare(monoSpec);
-    onnxProcessor2.prepare(monoSpec);
-    iirCutoffFilter1.prepare(monoSpec);
-    iirCutoffFilter2.prepare(monoSpec);
-    processorTransientSplitter1.prepare(monoSpec);
-    processorTransientSplitter2.prepare(monoSpec);
-    processorCompressor.prepare(monoSpec);
-    audioVisualiser.prepare(monoSpec);
-    grainDelay1.prepare(monoSpec);
-    grainDelay2.prepare(monoSpec);
+        dryWetMixer.prepare(spec);
 
-    
-    if (onnxProcessor1.getLatency() == onnxProcessor2.getLatency()) {
-        setLatencySamples(onnxProcessor1.getLatency());
-        dryWetMixer.setWetLatency(onnxProcessor1.getLatency());
+        fadeMixer.prepare(monoSpec);
+        compMixer.prepare(monoSpec);
+        grain1DryWetMixer.prepare(monoSpec);
+        grain2DryWetMixer.prepare(monoSpec);
+        onnxProcessor1.prepare(monoSpec);
+        onnxProcessor2.prepare(monoSpec);
+        iirCutoffFilter1.prepare(monoSpec);
+        iirCutoffFilter2.prepare(monoSpec);
+        processorTransientSplitter1.prepare(monoSpec);
+        processorTransientSplitter2.prepare(monoSpec);
+        processorCompressor.prepare(monoSpec);
+        audioVisualiser.prepare(monoSpec);
+        grainDelay1.prepare(monoSpec);
+        grainDelay2.prepare(monoSpec);
+
+
+        if (onnxProcessor1.getLatency() == onnxProcessor2.getLatency()) {
+            setLatencySamples(onnxProcessor1.getLatency());
+            dryWetMixer.setWetLatency(onnxProcessor1.getLatency());
 //        std::cout << "latency 1: " << onnxProcessor1.getLatency() << std::endl; //DBG
 //        std::cout << "latency 2: " << onnxProcessor2.getLatency() << std::endl; //DBG
-    } else {
-        setLatencySamples(0);
-        dryWetMixer.setWetLatency(0);
+        } else {
+            setLatencySamples(0);
+            dryWetMixer.setWetLatency(0);
+        }
     }
 }
 
