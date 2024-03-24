@@ -4,7 +4,7 @@
               version="1.0.0" companyName="Torsion Audio" companyCopyright="Copyright (c) 2024 - Torsion Audio"
               companyWebsite="https://www.torsion-audio.com/" companyEmail="info@torsion-audio.com"
               id="yj7xMM" reportAppUsage="0" useAppConfig="0" addUsingNamespaceToJuceHeader="1"
-              jucerFormatVersion="1">
+              jucerFormatVersion="1" cppLanguageStandard="17">
   <MAINGROUP id="G8kbr7" name="Scyclone">
     <GROUP id="{7B971739-A9E8-39B9-10F8-AC10314F7462}" name="app">
       <FILE id="XgJzPV" name="Main.cpp" compile="1" resource="0" file="app/Main.cpp"/>

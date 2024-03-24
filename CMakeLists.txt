@@ -164,7 +164,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 	if(CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "aarch64")
 		set_property(TARGET onnxruntime PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_LIST_DIR}/modules/onnxruntime/lib/linux-arm64/libonnxruntime.so)
 	elseif(CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "x86_64")
-
+		set_property(TARGET onnxruntime PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_LIST_DIR}/modules/onnxruntime/lib/linux-x86_64/libonnxruntime.so)
 	endif()
 endif()
 
