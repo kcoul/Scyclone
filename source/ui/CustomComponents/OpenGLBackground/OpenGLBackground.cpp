@@ -108,7 +108,7 @@ void OpenGLBackground::renderOpenGL()
     juce::gl::glViewport (0, 0, juce::roundToInt (renderingScale * getWidth()), juce::roundToInt (renderingScale * getHeight()));
 
     // Select shader program
-    shaderProgram->use();
+    //shaderProgram->use();
 
     // Setup the Uniforms for use in the Shader
     if (resolution) resolution->set(resolution_juce[0], resolution_juce[1]);
